@@ -63,8 +63,8 @@ static struct option long_options[] = {
     {NULL, 0, NULL, 0}
 };
 
-static void usage(int _exit) {
-    puts("usage: keepalived [options]\n");
+static void usage(void) {
+    puts("usage: keepalived [options] &\n");
     puts("  Description:");
     puts("    Simple daemon to block sleep if certain programs are running.");
     puts("    Programs should be defined in a config file called \".keepalive.conf\"");
@@ -78,8 +78,7 @@ static void usage(int _exit) {
     puts("    -i/--interval  --  Set the sleep interval (in seconds) between checks");
     puts("                       (default: 1s)");
     puts("    -c/--config  --  Set path to config");
-    if (_exit)
-        exit(1);
+    exit(1);
 }
 
 static int BlockSleep(void) {
@@ -175,7 +174,7 @@ int main(int argc, char **argv) {
         switch (opt) {
             case 'i':
                 if (!(sleepInterval = (unsigned int)atoi(optarg)))
-                    usage(1);
+                    usage();
                 break;
             case 'c':
                 configPath = optarg;
@@ -184,13 +183,13 @@ int main(int argc, char **argv) {
                 __verbose = YES;
                 break;
             case 'h':
-                usage(1);
+                usage();
             case ':':
                 fprintf(stderr, "ERROR: \"-%c\" requires a value!\n", optopt);
-                usage(1);
+                usage();
             case '?':
                 fprintf(stderr, "ERROR: Unknown argument \"-%c\"\n", optopt);
-                usage(1);
+                usage();
         }
     }
     @autoreleasepool {
