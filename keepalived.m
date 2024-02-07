@@ -193,31 +193,33 @@ int main(int argc, char **argv) {
                 usage(1);
         }
     }
-    __blocklist = [NSMutableDictionary new];
-    if (!configPath) {
+    @autoreleasepool {
+        __blocklist = [NSMutableDictionary new];
+        if (!configPath) {
 #define LOCATIONS          \
     X("~/.keepalive.conf") \
     X("./.keepalive.conf") \
     X(".keepalive.conf")
-#define X(PATH)            \
-        if (LoadConfig(PATH))  \
-            goto FOUND;
-        LOCATIONS
+#define X(PATH)                    \
+            if (LoadConfig(PATH))  \
+                goto FOUND;
+            LOCATIONS
 #undef X
-    } else
-        LoadConfig(configPath);
-FOUND:
-    if (![__blocklist count]) {
-        LOG(" * NOTHING IN BLOCKLIST");
-        return 1;
-    }
-    assert(atexit(AllowSleep));
-    for (;;) {
-        if (CheckWindows())
-            BlockSleep();
-        else
-            AllowSleep();
-        sleep(sleepInterval);
+        } else
+            LoadConfig(configPath);
+    FOUND:
+        if (![__blocklist count]) {
+            LOG(" * NOTHING IN BLOCKLIST");
+            return 1;
+        }
+        assert(atexit(AllowSleep));
+        for (;;) {
+            if (CheckWindows())
+                BlockSleep();
+            else
+                AllowSleep();
+            sleep(sleepInterval);
+        }
     }
     return 0;
 }
