@@ -111,13 +111,13 @@ static int CheckWindows(void) {
         [__blocklist enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
             NSString *line = (NSString*)key;
             int isBundleID = [(NSNumber*)obj intValue];
-#define CHECK(A, B)                                 \
-    do {                                            \
-        if ([(A) caseInsensitiveCompare:(B)]) {     \
-            LOGF(@"\%@\" FOUND IN BLACKLIST", (B)); \
-            found = YES;                            \
-            *stop = YES;                            \
-        }                                           \
+#define CHECK(A, B)                                  \
+    do {                                             \
+        if ([(A) caseInsensitiveCompare:(B)]) {      \
+            LOGF(@"\"%@\" FOUND IN BLACKLIST", (B)); \
+            found = YES;                             \
+            *stop = YES;                             \
+        }                                            \
     } while(0);
             if (isBundleID) {
                 CHECK(line, bundleID);
