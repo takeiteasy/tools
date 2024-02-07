@@ -1,4 +1,4 @@
-/* largetext (Mac only)
+/* largetext (https://github.com/takeiteasy/tools) (Mac only)
  Description: Pipe text to display in large text. Similar to what an old app used to
               do many years ago. I can't remember which one it was though. (Mail maybe???)
               Anyway, simply pipe some text to the program and it will display in a big

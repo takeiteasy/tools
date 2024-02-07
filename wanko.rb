@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 =begin
-https://github.com/takeiteasy
+https://github.com/takeiteasy/tools
 Description: Simple CSS/XPath selector searcher, built for web scraping
 Depends on slop + nokogiri, inspired by https://github.com/ericchiang/pup
 

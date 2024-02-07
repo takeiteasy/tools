@@ -1,4 +1,4 @@
-/* obj2header.c -- https://github.com/takeiteasy/
+/* obj2header.c -- https://github.com/takeiteasy/tools
  
  The MIT License (MIT)
 

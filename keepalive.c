@@ -1,4 +1,4 @@
-/* keepalive (Mac only)
+/* keepalive (https://github.com/takeiteasy/tools) (Mac only)
  Description: Prevent sleep on Mac until exit
  Build: clang keepalive.c -framework IOKit -framework Foundation -o keepalive
  

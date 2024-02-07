@@ -1,4 +1,4 @@
-/* fdialog (Mac only)
+/* fdialog (https://github.com/takeiteasy/tools) (Mac only)
  Description: Create simple file dialog from command line
               Open, directory and save dialogs are support with optional filters
               See -h/--help for more information on usage.

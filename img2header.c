@@ -1,4 +1,4 @@
-/* imgheader.c -- https://github.com/takeiteasy/zawa
+/* imgheader.c -- https://github.com/takeiteasy/tools
  
  The MIT License (MIT)
 

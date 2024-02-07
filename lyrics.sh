@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+# https://github.com/takeiteasy/tools
 # Description: MusixMatch API scraper
 # Requires: jq (https://stedolan.github.io/jq/) and curl
 #

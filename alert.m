@@ -1,4 +1,4 @@
-/* alert (Mac only)
+/* alert (https://github.com/takeiteasy/tools) (Mac only)
  Description: Create simple alert notifications from command line
               See -h/--help for more information on usage.
               Return values are based on which button order (first button 0, second 1, etc)
