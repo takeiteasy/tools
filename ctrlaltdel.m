@@ -104,7 +104,7 @@ static CGEventRef EventCallback(CGEventTapProxy proxy, CGEventType type, CGEvent
                                                                                   forKey:NSWorkspaceLaunchConfigurationArguments]
                                                 error:&error];
                     if (error) {
-                        printf("%s\n", [[error localizedDescription] UTF8String]);
+                        fprintf(stderr, "%s\n", [[error localizedDescription] UTF8String]);
                         assert(0);
                     }
                 }
