@@ -1,4 +1,4 @@
-/* alert (https://github.com/takeiteasy/tools) (Mac only)
+/* alert (https://github.com/takeiteasy/dialog-tools) (Mac only)
  Description: Create simple alert notifications from command line
               See -h/--help for more information on usage.
               Return values are based on which button order (first button 0, second 1, etc)
@@ -54,17 +54,18 @@ static struct option long_options[] = {
 
 static void usage(void) {
     puts("usage: alert [options] -m [message]\n");
-    puts("\t-i/--info\tInfo style alert\t[required*]");
-    puts("\t-w/--warning\tWarning style alert\t[required*]");
-    puts("\t-e/--error\tError style dialog\t[required*]");
-    puts("\t-o/--ok\t\tAdd OK button");
-    puts("\t-c/--cancel\tAdd Cancel button");
-    puts("\t-y/--yes\tAdd Yes button");
-    puts("\t-n/--no\t\tAdd No button");
-    puts("\t-x/--custom\tAdd button with custom text");
-    puts("\t-m/--message\tDialog message\t\t[required]");
-    puts("\t-h/--help\tDisplay this message");
-    puts("\n\t[*] Only one of these is required");
+    puts("  https://github.com/takeiteasy/dialog-tools\n");
+    puts("  -i/--info     Info style alert [required*]");
+    puts("  -w/--warning  Warning style alert [required*]");
+    puts("  -e/--error    Error style dialog [required*]");
+    puts("  -o/--ok       Add OK button");
+    puts("  -c/--cancel   Add Cancel button");
+    puts("  -y/--yes      Add Yes button");
+    puts("  -n/--no       Add No button");
+    puts("  -x/--custom   Add button with custom text");
+    puts("  -m/--message  Dialog message [required]");
+    puts("  -h/--help     Display this message");
+    puts("\n  [required*] Only one of these is required");
 }
 
 int main(int argc, char** argv) {

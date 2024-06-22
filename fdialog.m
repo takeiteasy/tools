@@ -1,4 +1,4 @@
-/* fdialog (https://github.com/takeiteasy/tools) (Mac only)
+/* fdialog (https://github.com/takeiteasy/dialog-tools) (Mac only)
  Description: Create simple file dialog from command line
               Open, directory and save dialogs are support with optional filters
               See -h/--help for more information on usage.
@@ -48,20 +48,22 @@ static struct option long_options[] = {
     {"filter", required_argument, NULL, 'f'},
     {"path", required_argument, NULL, 'p'},
     {"filename", required_argument, NULL, 'n'},
+    {"help", no_argument, NULL, 'h'},
     {NULL, 0, NULL, 0}
 };
 
 static void usage(void) {
     puts("usage: fdialog [options]\n");
-    puts("\t-o/--open\tOpen file dialog\t\t[required*]");
-    puts("\t-d/--dir\tOpen directory dialog\t\t[required*]");
-    puts("\t-s/--save\tSave file dialog\t\t[required*]");
-    puts("\t-m/--multiple\tAllow selecting multiple files\t[disabled by default]");
-    puts("\t-f/--filter\tAllowed file extension pattern\t[comma delimeter]");
-    puts("\t-p/--path\tInitial directory for dialog to show");
-    puts("\t-n/--filename\tDefault filename for dialog to use");
-    puts("\t-h/--help\tDisplay this message");
-    puts("\n\t[*] Only one of these is required");
+    puts("  https://github.com/takeiteasy/dialog-tools\n");
+    puts("  -o/--open      Open file dialog [required*]");
+    puts("  -d/--dir       Open directory dialog [required*]");
+    puts("  -s/--save      Save file dialog [required*]");
+    puts("  -m/--multiple  Allow selecting multiple files [disabled by default]");
+    puts("  -f/--filter    Allowed file extension pattern [comma delimeter]");
+    puts("  -p/--path      Initial directory for dialog to show");
+    puts("  -n/--filename  Default filename for dialog to use");
+    puts("  -h/--help      Display this message");
+    puts("\n  [required*] Only one of these is required");
 }
 
 int main(int argc, char** argv) {
