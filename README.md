@@ -1,6 +1,6 @@
-# dialog-tools
+# mac-tools
 
-A collection of dialog-related tools designed to be used by shell scripts (Mac only).
+A collection of command-line tools for mac.
 
 ### fdialog.m
 
@@ -55,6 +55,43 @@ usage: alert [options] -m [message]
     -h/--help    Display this message
 
     [*] Only one of these is required
+```
+
+### stayawakeif.m
+
+This is a daemon configured with a blacklist of programs that if running will prevent sleep. The config file should be called `.stayawake.conf` and it can be put either next to the binary or in your home directory. The path to the config file can also be passed through arguments, as can the sleep interval.
+
+The config file should be a list of program names or bundle IDs, and one App or Bundle ID per line. If any of the apps in the list are running, sleep will be blocked.
+
+### stayawake.c
+
+This is a small tool that takes no arguments, just run it and it will block the computer sleeping until the user presses a key.
+
+### cocr
+
+General purpose OCR for Mac from the terminal. Tell cocr where to read on the screen and it will output what it thinks is written there. Uses the Vision framework.
+
+```
+usage: cocr [options]
+
+  Description:
+    A general purpose CLI on-screen OCR for Mac
+
+  Arguments:
+    * --disable-overlay/-o -- Disable capture overlay
+    * --color/-c -- Background color for capture overlay (Hex or RGBA)
+    * --disable-border/-b -- Disable border on capture overlay
+    * --frame/-f -- Capture frame (x,y,w,h)
+    * --keep-alive/-k -- Capture periodically, see -i
+    * --interval/-i -- Capture timer interval (default: 1 second)
+    * --fullscreen/-F -- Set capture frame to screen size
+    * --disable-statusbar/-s -- Disable status bar icon to quit app
+    * --disable-md5check/-m -- Disable MD5 duplicate check
+    * --clipboard/-p -- Output OCR result to clipboard instead of STDOUT
+    * --language/-l -- Set the target language, default "en-US"
+    * --verbose/-v -- Enable logging
+    * --help/-h -- Display this message
+
 ```
 
 ## LICENSE
