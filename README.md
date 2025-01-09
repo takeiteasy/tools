@@ -1,6 +1,6 @@
-# mac-tools
+# tools
 
-A collection of command-line tools for mac.
+My miscellaneous CLI tools
 
 ### fdialog.m
 
@@ -57,12 +57,6 @@ usage: alert [options] -m [message]
     [*] Only one of these is required
 ```
 
-### stayawakeif.m
-
-This is a daemon configured with a blacklist of programs that if running will prevent sleep. The config file should be called `.stayawake.conf` and it can be put either next to the binary or in your home directory. The path to the config file can also be passed through arguments, as can the sleep interval.
-
-The config file should be a list of program names or bundle IDs, and one App or Bundle ID per line. If any of the apps in the list are running, sleep will be blocked.
-
 ### stayawake.c
 
 This is a small tool that takes no arguments, just run it and it will block the computer sleeping until the user presses a key.
@@ -91,31 +85,40 @@ usage: cocr [options]
     * --language/-l -- Set the target language, default "en-US"
     * --verbose/-v -- Enable logging
     * --help/-h -- Display this message
-
 ```
 
-## LICENSE
+### charlotte
+
+Web scraping tool, built with nokogiri + selenium. Selenium is used to manually bypass bot protection for websites and getting HTML post-javascript. Nokogiri is used to parse HTML attributes + CSS selectors.
+
 ```
- The MIT License (MIT)
- 
- Copyright (c) 2024 George Watson
- 
- Permission is hereby granted, free of charge, to any person
- obtaining a copy of this software and associated documentation
- files (the "Software"), to deal in the Software without restriction,
- including without limitation the rights to use, copy, modify, merge,
- publish, distribute, sublicense, and/or sell copies of the Software,
- and to permit persons to whom the Software is furnished to do so,
- subject to the following conditions:
- 
- The above copyright notice and this permission notice shall be
- included in all copies or substantial portions of the Software.
- 
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
- IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
- CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
- TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
- SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ Usage: `echo [TEXT] | charlotte.rb` or `charlotte.rb -f [FILE]` or `charlotte.rb -u [URL]`
+
+ Description: A little spider to crawl the web!
+
+ Example:
+    ruby charlotte.rb --url http://www.example.com --selector 'p a' --attrs 'href'
+      => https://www.iana.org/domains/example
+
+    -h, --help                       Print help
+    -v, --verbose                    Enable verbose logging
+    -f, --file A,B,C                 Read document(s) from path(s)
+    -u, --url=URL                    Download HTML/XML from URL
+    -d, --driver=DRIVER              Specify a WebDriver to use if you would like to use Selenium
+                                     when using the `--url` option. Useful for websites that have
+                                     automated `prove you are human` captchas. Or if you need to
+                                     wait some something on the page to load.
+                                     Valid drivers: chrome, edge, firefox, ie, safari
+    -H, --headless                   Enable `--headless` for Selenium WebDriver
+    -l, --load-strategy              Specify the page load strategy for Selenium WebDriver.
+                                     Valid strats: `normal`, wait until page fully loads before
+                                     returning. `eager` will wait until the DOM is loaded then
+                                     return, other resources may still be loading. `none` doesn't
+                                     block the WebDriver at all, `--timeout` option is required.
+    -t, --timeout=SECONDS            Set the page load timeout when using `--url` (in seconds)
+    -p, --proxy=ADDRESS              Set a proxy for Selenium WebDriver
+    -s, --selector=SELECTOR          Filter document(s) with a CSS selector
+    -x, --xpath=PATH                 Filter document(s) with an XML XPath
+    -a, --attrs A,B,C                Specify any tag attributes to print
+    -b, --body                       When printing a matched result, only print the tag`s body
 ```

@@ -20,4 +20,8 @@ stayawake:
 stayawakeif:
 	clang stayawakeif.m -framework Cocoa -framework IOKit -framework Foundation -o stayawakeif
 
+charlotte:
+	cp charlotte.rb charlotte; \
+	chmod +x charlotte
+
 .PHONY: default all alert fdialog cdialog
